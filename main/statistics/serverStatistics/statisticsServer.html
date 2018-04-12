@@ -1,0 +1,10 @@
+<template name="statisticsServer">
+	{{#if showRunningStatistics}}
+		<p class="text-center"><b>Cantidad de clientes en servidor</b></p>
+		<div class="chart">
+			<canvas id="barChart" style="height: 180px;"></canvas>
+		</div>
+	{{else}}
+	 	{{>noDataStatistics}}
+	{{/if}}
+</template>

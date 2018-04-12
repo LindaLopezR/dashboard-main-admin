@@ -1,0 +1,26 @@
+<template name="statisticsCompanies">
+	{{#if showStatisticsCompanies}}
+		<table class="table no-margin table-hover table-striped table-responsive" id="statistics">
+			<thead>
+				<tr>
+					<th>Empresa</th>
+					<th>Visitas</th>
+					<th>Dashboard</th>
+				</tr>
+			</thead>
+			<tbody class="text-center">
+				{{#each getStatisticsCompanies}}
+					<tr>
+						<td>Gecko, Inc</td>
+						<td>98,764,798</td>
+						<td class="tex-center">
+							<a href="" class="btn btn-xs btn-info"><i class="fa fa-dashboard"></i></a>
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	{{else}}
+	 	{{>noStatisticsCompanies}}
+	{{/if}}
+</template>

@@ -1,0 +1,10 @@
+<template name="statisticsUsers">
+	{{#if showUsersNew}}
+		<p class="text-center"><b>Registro de nuevos clientes</b></p>
+		<div class="chart">
+			<canvas id="newUsers"></canvas>
+		</div>
+	{{else}}
+		{{>noDataNewUsers}}
+	{{/if}}
+</template>

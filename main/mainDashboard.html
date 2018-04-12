@@ -1,0 +1,182 @@
+<template name="mainDashboard">
+	<section class="content-header">
+	  <h1>
+	  	Dashboard
+	  	<small>Control Principal</small>
+	  </h1>
+	</section>
+
+	<section class="content altDef">
+		
+		<div class="box">
+			<div class="box-header with-border">
+				<h3 class="box-title">Reporte principal</h3>
+			</div>
+			<div class="box-body">
+				<div class="row">
+					<!-- Gráfica -->
+					<div class="col-md-7">
+						{{>statisticsUsers}}
+					</div>
+
+					<div class="col-md-5">
+						<p class="text-center">
+							<strong>Registro de solicitudes</strong>
+						</p>
+
+						<div class="progress-group">
+							<span class="progress-text">Móvil</span>
+							<span class="progress-number">
+								{{getMobileRequest}}
+							</span>
+							<div class="progress sm">
+								<div class="progress-bar bg-teal disabled" style="width: {{getMobilePercentage}}%"></div>
+							</div>
+						</div>
+
+						<div class="progress-group">
+							<span class="progress-text">Emails</span>
+							<span class="progress-number">
+								{{getEmailRequest}}
+							</span>
+							<div class="progress sm">
+								<div class="progress-bar bg-aqua disabled" style="width: {{getEmailPercentage}}%"></div>
+							</div>
+						</div>
+
+						<div class="progress-group">
+							<span class="progress-text">Reportes</span>
+							<span class="progress-number">
+								{{getReportsRequest}}
+							</span>
+							<div class="progress sm">
+								<div class="progress-bar progress-bar-blue" style="width: {{getReportsPercentage}}%"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="box-footer">
+				<div class="row">
+					<div class="col-sm-3 col-xs-6">
+						<div class="description-block border-right">
+							<span><i class="fa fa-industry"></i></span>
+							<h5 class="description-header">
+								{{getTotalCompanies}}
+							</h5>
+							<span class="description-text">TOTAL DE EMPRESAS</span>
+						</div>
+					</div>
+
+					<div class="col-sm-3 col-xs-6">
+						<div class="description-block border-right">
+							<span><i class="fa fa-clock-o"></i></span>
+							<h5 class="description-header">
+								{{getTotalHours}} hrs
+							</h5>
+							<span class="description-text">TIEMPO PROMEDIO</span>
+						</div>
+					</div>
+
+					<div class="col-sm-3 col-xs-6">
+						<div class="description-block border-right">
+							<span><i class="fa fa-check-square-o"></i></span>
+							<h5 class="description-header">
+								{{getIncidenceAnswered}}
+							</h5>
+							<span class="description-text">INCIDENCIAS CONTESTADAS</span>
+						</div>
+					</div>
+
+					<div class="col-sm-3 col-xs-6">
+						<div class="description-block">
+							<span><i class="fa fa-times"></i></span>
+							<h5 class="description-header">
+								{{getIncidenceNoAnswered}}
+							</h5>
+							<span class="description-text">INCIDENCIAS NO CONTESTADAS</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="box box-info">
+					<div class="box-header with-border">
+						<i class="fa fa-dashboard"></i>
+						<h3 class="box-title">Dashboard por empresa</h3>
+					</div>
+
+					<!-- TABLE -->
+					<div class="box-body">
+						{{>statisticsCompanies}}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<i class="fa fa-bar-chart-o"></i>
+						<h3 class="box-title">Registro en servidores</h3>
+					</div>
+					<div class="box-body">
+						{{>statisticsServer}}
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="box box-success">
+			<div class="box-header with-border">
+				<h3 class="box-title">Reporte de visitas</h3>
+			</div>
+
+			<div class="box-body no-padding">
+				<div class="row">
+					<div class="col-md-9 col-sm-8">
+						<!-- Map  -->
+						{{>statisticsMap}}
+						
+					</div>
+
+					<div class="col-md-3 col-sm-4">
+						<div class="pad box-pane-right bg-green" style="min-height: 280px">
+							<div class="description-block margin-bottom">
+								<div class="sparkbar pad" data-color="#fff">
+									{{getVisitsGraphics}}
+								</div>
+								<h5 class="description-header">
+									{{getVisitsTotal}}
+								</h5>
+								<span class="description-text">Visitas</span>
+							</div>
+
+							<div class="description-block margin-bottom">
+								<div class="sparkbar pad" data-color="#fff">
+									{{getOnlineGraphics}}
+								</div>
+								<h5 class="description-header">
+									{{getOnlineTotal}}
+								</h5>
+								<span class="description-text">Online</span>
+							</div>
+
+							<div class="description-block">
+								<div class="sparkbar pad" data-color="#fff">
+									{{getExistsGraphics}}
+								</div>
+								<h5 class="description-header">
+									{{getExistsTotal}}%
+								</h5>
+								<span class="description-text">Existentes</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</section>
+</template>
